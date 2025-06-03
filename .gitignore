@@ -1,3 +1,5 @@
-
+# Ignoring the IntellijFiles for VSCode Users
+.idea/
+.out/
 # Ignoring the Json file to connect the database with java in VsCode
 .vscode/

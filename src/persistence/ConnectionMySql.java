@@ -8,41 +8,35 @@ import java.sql.SQLException;
 
 // Class ConnectionMySql;
 public class ConnectionMySql {
-    
-    // Attributes;
-    private final String DRIVER_CLASS = "com.mysql.cj.jdbc.Driver";
-    private final String ADDRESS = String.format("jdbc:mysql://%s:%s/%s",
-        Constants.IP, Constants.DOOR, Constants.NAME_DATABASE);
 
-    // Connection Attribute;
+    private static final String IP = Constants.IP;
+    private static final String BDNAME = Constants.NAME_DATABASE;
+    private static final String PASSWORD = Constants.PASSWORD;
+    private static final String DOOR = Constants.DOOR;
+    private static final String LOGIN = Constants.USER;
+
     private static Connection connection;
 
-    // Method to open a new connection with the Database;
-    public void openConnection() {
-
+    public static void openConnection() {
         try {
-            Class.forName(DRIVER_CLASS);
-            connection = DriverManager.getConnection(ADDRESS, Constants.USER, Constants.PASSWORD);
-        } 
-        catch (ClassNotFoundException | SQLException e) {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            String endereco = "jdbc:mysql://"+IP +":"+DOOR +"/"+BDNAME;
+            connection = DriverManager.getConnection(endereco, LOGIN, PASSWORD);
+        }catch(ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
     }
 
-    // Method to close a new connection with the Database;
-    public void closeConnection() {
-
+    public static void closeConnection() {
         try {
-            if (!connection.isClosed()) {
+            if(!connection.isClosed()) {
                 connection.close();
             }
-        } 
-        catch (SQLException e) {
+        }catch(SQLException e) {
             e.printStackTrace();
         }
     }
 
-    // Getter of the connection
     public static Connection getConnection() {
         return connection;
     }

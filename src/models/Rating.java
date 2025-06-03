@@ -43,6 +43,7 @@ public class Rating {
 
     public void setUser(User user) {
         this.user = user;
+        user.getAllRatings().add(this);
     }
 
     // Getter and Setter of the Stream of the Rating;
@@ -52,6 +53,7 @@ public class Rating {
 
     public void setStream(Stream stream) {
         this.stream = stream;
+        getStream().getAllRatings().add(this);
     }
 
     

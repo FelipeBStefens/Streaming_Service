@@ -1,12 +1,9 @@
--- Creating database
-CREATE DATABASE stream_db;
-
 -- Using our database
 USE stream_db;
 
 -- Creating user table
 CREATE TABLE user(
-	id_user BIGINT UNIQUE NOT NULL AUTO_INCREMENT,
+	id_user BIGINT AUTO_INCREMENT,
 	nickname VARCHAR(35) UNIQUE NOT NULL,
     email VARCHAR(255) UNIQUE NOT NULL,
     password_user VARCHAR(35) NOT NULL,
@@ -16,7 +13,7 @@ CREATE TABLE user(
 
 -- Creating stream table
 CREATE TABLE streamTable(
-	id_stream BIGINT UNIQUE NOT NULL AUTO_INCREMENT,
+	id_stream BIGINT AUTO_INCREMENT,
     title VARCHAR(100) NOT NULL,
     description_stream VARCHAR(500),
     poster VARCHAR(300) UNIQUE,
@@ -26,14 +23,14 @@ CREATE TABLE streamTable(
 
 -- Creating serie table
 CREATE TABLE serie(
-	id_serie BIGINT UNIQUE NOT NULL AUTO_INCREMENT,
+	id_serie BIGINT,
     PRIMARY KEY(id_serie),
     FOREIGN KEY(id_serie) REFERENCES streamTable(id_stream)
 );
 
 -- Creating movie table
 CREATE TABLE movie(
-	id_movie BIGINT UNIQUE NOT NULL AUTO_INCREMENT,
+	id_movie BIGINT,
     duration TIME NOT NULL,
     PRIMARY KEY(id_movie),
     FOREIGN KEY(id_movie) REFERENCES streamTable(id_stream)
@@ -41,31 +38,30 @@ CREATE TABLE movie(
 
 -- Creating season table
 CREATE TABLE season(
-	id_season BIGINT UNIQUE NOT NULL AUTO_INCREMENT,
+	id_season BIGINT AUTO_INCREMENT,
     number_season INT NOT NULL,
-    id_serie BIGINT UNIQUE NOT NULL,
+    id_serie BIGINT NOT NULL,
     PRIMARY KEY(id_season),
     FOREIGN KEY(id_serie) REFERENCES serie(id_serie)
 );
 
 -- Creating episode table
 CREATE TABLE episode(
-	id_episode BIGINT UNIQUE NOT NULL AUTO_INCREMENT,
+	id_episode BIGINT AUTO_INCREMENT,
     title VARCHAR(100) NOT NULL,
     description_stream VARCHAR(500),
     release_date DATE NOT NULL,
     duration TIME NOT NULL,
-    id_season BIGINT UNIQUE NOT NULL,
+    id_season BIGINT NOT NULL,
     PRIMARY KEY(id_episode),
     FOREIGN KEY(id_season) REFERENCES season(id_season)
 );
-
 -- Creating rating table
 CREATE TABLE rating(
-	id_rating BIGINT UNIQUE NOT NULL AUTO_INCREMENT,
+	id_rating BIGINT AUTO_INCREMENT,
     rate INT,
-    id_stream BIGINT UNIQUE NOT NULL,
-    id_user BIGINT UNIQUE NOT NULL,
+    id_stream BIGINT NOT NULL,
+    id_user BIGINT NOT NULL,
 	PRIMARY KEY(id_rating),
     FOREIGN KEY(id_stream) REFERENCES streamTable(id_stream),
     FOREIGN KEY(id_user) REFERENCES user(id_user)

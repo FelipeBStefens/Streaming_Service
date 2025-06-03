@@ -80,7 +80,6 @@ public class Stream {
 
     // Method to add a Rating on the List;
     public void addRating(Rating rating) {
-
         allRatings.add(rating);
         rating.setStream(this);
     }

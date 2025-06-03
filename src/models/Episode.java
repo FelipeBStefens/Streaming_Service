@@ -75,10 +75,12 @@ public class Episode {
 
     // Getter and Setter of the Season date of the Episode;
     public Season getSeason() {
+
         return season;
     }
 
     public void setSeason(Season season) {
         this.season = season;
+        season.getAllEpisodes().add(this);
     }
 }

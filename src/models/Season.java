@@ -47,6 +47,7 @@ public class Season {
 
     public void setSerie(Serie serie) {
         this.serie = serie;
+        serie.getAllSeasons().add(this);
     }
 
     // Getter of the List of all the Episodes of the Season;
