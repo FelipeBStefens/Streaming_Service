@@ -18,10 +18,9 @@ public class Stream {
     private final List<Rating> allRatings = new ArrayList<>();
 
     // Constructor of the class;
-    public Stream(long idStream, String title, String description, String poster, LocalDate releaseDate) {
+    public Stream(String title, String description, String poster, LocalDate releaseDate) {
 
         // Declarations of the attributes;
-        this.idStream = idStream;
         this.title = title;
         this.description = description;
         this.poster = poster;

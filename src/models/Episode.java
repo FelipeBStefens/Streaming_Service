@@ -17,11 +17,9 @@ public class Episode {
     private Season season;
     
     // Constructor of the class;
-    public Episode(long idEpisode, String title, String description, 
-        LocalTime duration, LocalDate releaseDate) {
+    public Episode(String title, String description, LocalTime duration, LocalDate releaseDate) {
 
         // Declarations of the Attributes;
-        this.idEpisode = idEpisode;
         this.title = title;
         this.description = description;
         this.duration = duration;
@@ -73,9 +71,8 @@ public class Episode {
         this.releaseDate = releaseDate;
     }
 
-    // Getter and Setter of the Season date of the Episode;
+    // Getter and Setter of the Season of the Episode;
     public Season getSeason() {
-
         return season;
     }
 

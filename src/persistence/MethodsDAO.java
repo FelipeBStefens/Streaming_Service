@@ -1,17 +1,25 @@
+// Package persistence;
 package persistence;
 
+// Imports;
 import java.util.List;
 
-public interface MethodsDAO <T>{
+// Interface MethodsDAO, with a generic type that will be defined on the class;
+public interface MethodsDAO< T>{
 
-    void insert(T objDAO);
+    // Insert method to add a register on the Database;
+    public void insert(T ObjectDAO);
 
-    void update(T objDAO);
+    // Update method to alter a register on the Database; 
+    public void update(T ObjectDAO);
 
-    void delete(T objDAO);
+    // Delete method to delete a register on the Database;
+    public void delete(T ObjectDAO);
 
-     T searchById(long id);
+    // Search method to select a register on the Database by the id;
+    public T searchById(long id);
 
-     List<T> searchAll();
+    // Search all method to select all the possibilities on the Database;
+    public List<T> searchAll();
 
 }

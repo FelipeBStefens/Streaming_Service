@@ -11,10 +11,9 @@ public class Rating {
     private Stream stream;
 
     // Constructor of the class;
-    public Rating(long idRating, int rating) {
+    public Rating(int rating) {
 
         // Declarations of the Attributses;
-        this.idRating = idRating;
         this.rating = rating;
     }
 
@@ -55,6 +54,4 @@ public class Rating {
         this.stream = stream;
         getStream().getAllRatings().add(this);
     }
-
-    
 }

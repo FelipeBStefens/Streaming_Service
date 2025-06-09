@@ -3,3 +3,4 @@
 .out/
 # Ignoring the Json file to connect the database with java in VsCode
 .vscode/
+lib/

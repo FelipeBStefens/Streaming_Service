@@ -14,12 +14,12 @@ public class Serie extends Stream{
     private final List<Season> allSeasons = new ArrayList<>();
 
     // Constructor of the class;
-    public Serie(long idSerie, long idStream, String title, String description, 
+    public Serie(long idStream, String title, String description, 
         String poster, LocalDate releaseDate) {
 
         // Declarations of the attributes;
-        super(idStream, title, description, poster, releaseDate);
-        this.idSerie = idSerie;
+        super(title, description, poster, releaseDate);
+        super.setIdStream(idStream);
     }
 
     // Getter and Setter of the id of the Serie;

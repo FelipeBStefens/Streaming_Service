@@ -15,10 +15,9 @@ public class Season {
     private final List<Episode> allEpisodes = new ArrayList<>();
 
     // Constructor of the class;
-    public Season(long idSeason, int number) {
+    public Season(int number) {
 
         // Declarations of the attributes;
-        this.idSeason = idSeason;
         this.number = number;
     }
 

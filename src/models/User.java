@@ -17,10 +17,9 @@ public class User {
     private final List<Rating> allRatings = new ArrayList<>();
     
     // Constructor of the class;
-    public User(long idUser, String email, String password, String nickname, String image) {
+    public User(String email, String password, String nickname, String image) {
 
         // Declarations of the attributes;
-        this.idUser = idUser;
         this.email = email;
         this.password = password;
         this.nickname = nickname;
@@ -83,6 +82,4 @@ public class User {
         allRatings.add(rating);
         rating.setUser(this);
     }
-
-  
 }
